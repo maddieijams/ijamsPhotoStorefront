@@ -43,19 +43,19 @@ class ItemDisplay extends Component {
       <React.Fragment>
       {this.state.photo ? 
       <React.Fragment>
-          <ul>
-            <li>
+        <h1>{this.state.photo.title}</h1>
+         
               <img
                 src={this.state.photo.imageURL}
                 alt="item"
                 width="300px"
                 height="auto"
               />
-            </li>
-            <li>{this.state.photo.title}</li>
+            <br />
+            
             {/* <li>{this.state.photo.desc}</li> */}
-            <li>Price: ${this.state.price}</li>
-          </ul>
+            Price: ${this.state.price}
+            <br />
 
           <Link to={`/image/${this.state.photo.id}`}><Button>View high resolution image</Button></Link>
 

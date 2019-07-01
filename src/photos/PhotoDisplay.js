@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Button } from 'reactstrap';
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import Masonry from 'react-masonry-component';
+
+const masonryOptions = {
+  transitionDuration: 0
+};
+
+const imagesLoadedOptions = { background: '.my-bg-image-el' }
 
 class PhotoDisplay extends Component {
   constructor(props) {
@@ -28,22 +35,28 @@ class PhotoDisplay extends Component {
   };
 
   render() {
-    return this.state.photos.map((el, index) => (
-      <div className="photoDisplay" key={index}>
-        <ul>
-          <li>
-            <Link to={`/item/${el.id}`} >
-            <img src={el.imageURL} alt="item" width="200px" height="auto" />
-            </Link>
-          </li>
-          {/* <li>{el.title}</li>
-          <li>{el.desc}</li>
-          <li>{el.price}</li> */}
-
-        </ul>
-      </div>
+        const childElements = this.state.photos.map((el, index) => (
+        <div className="image-element-class" key={index}>
+          <Link to={`/item/${el.id}`} >
+          <img src={el.imageURL}  alt="item" width="400px" height="auto" />
+          </Link>
+        </div>
     ));
+
+    return (
+    <Masonry
+    className={"my-gallery-class"} // default ''
+    elementType={"div"} // default 'div'
+    options={masonryOptions} // default {}
+    disableImagesLoaded={false} // default false
+    updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+    imagesLoadedOptions={imagesLoadedOptions} // default {}
+  >
+    {childElements}
+  </Masonry>
+    );
   }
+    
 }
 
 export default PhotoDisplay;
