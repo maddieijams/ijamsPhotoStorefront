@@ -1,16 +1,25 @@
 import React, { Component } from "react";
+import './App.css';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import CheckoutForm from "./checkout/CheckoutForm";
 import PhotoDisplay from "./photos/PhotoDisplay";
 import AddressForm from "./checkout/AddressForm";
 import ItemDisplay from "./photos/item/ItemDisplay";
 import ItemImage from './photos/item/ItemImage';
+import Navigation from './nav/Navigation';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <center><h1 className='title'>Ijams Photography</h1></center>
+      <Navigation />
+      
+      <br />
+      <br />
+      <br />
+      
         <Router>
 
           <Route path="/" exact component={PhotoDisplay} />

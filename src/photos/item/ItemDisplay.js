@@ -7,17 +7,18 @@ class ItemDisplay extends Component {
     super(props);
     this.state = {
       photo: "",
-      id: this.props.id,
+      id: '',
       price: 30
     };
   }
 
   componentDidMount() {
-    this.id = this.props.match.params.id;
     this.fetchPhoto();
   }
-
+  
   fetchPhoto = () => {
+    this.id = this.props.match.params.id;
+    console.log(this.id)
     fetch(`http://localhost:3050/photo/item/${this.id}`, {
       method: "GET",
       headers: {
@@ -57,7 +58,7 @@ class ItemDisplay extends Component {
             Price: ${this.state.price}
             <br />
 
-          <Link to={`/image/${this.state.photo.id}`}><Button>View high resolution image</Button></Link>
+          <Link to={`/image/${this.id}`}><Button>View high resolution image</Button></Link>
 
 <FormGroup tag="fieldset">
 <legend>How would you like it?</legend>

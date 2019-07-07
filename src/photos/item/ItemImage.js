@@ -6,7 +6,7 @@ class ItemDisplay extends Component {
     super(props);
     this.state = {
       photo: "",
-      id: this.props.id,
+      id: '',
     };
   }
 

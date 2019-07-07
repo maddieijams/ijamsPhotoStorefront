@@ -44,6 +44,7 @@ class PhotoDisplay extends Component {
     ));
 
     return (
+      <div className='masonryDisplay'>
     <Masonry
     className={"my-gallery-class"} // default ''
     elementType={"div"} // default 'div'
@@ -54,6 +55,7 @@ class PhotoDisplay extends Component {
   >
     {childElements}
   </Masonry>
+  </div>
     );
   }
     
