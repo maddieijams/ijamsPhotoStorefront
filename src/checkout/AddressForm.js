@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Elements, StripeProvider } from 'react-stripe-elements';
 
 class AddressForm extends Component {
   constructor(props) {
@@ -20,17 +22,18 @@ class AddressForm extends Component {
     })
 }
 
-handleCreate = (e) => {
+handleSubmit = (e) => {
   e.preventDefault()
   console.log(this.state)
-  fetch('http://localhost:3050/address/customer', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-          'Content-Type': 'application/json'
-      }
+  fetch(`http://localhost:3050/address/customer`, {
+    method: 'POST',
+    body: JSON.stringify(this.state),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    })
   })
   .then((res) => res.json())
+  .catch((error) => console.log(error))
   .then((data) => {
       this.setState({ 
         name: '',
@@ -42,45 +45,45 @@ handleCreate = (e) => {
       })
     }
   )
-  // console.log(this.state)
-
 }
 
   render() {
 
     return (
       <div className="address">
-                                  <Form onSubmit={this.handleCreate}>
+                                  <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
                                 <Label for="name">Name</Label>
-                                <Input id="name" type="text" name="name" value={this.state.name || ''} onChange={this.handleChange} required ></Input>
+                                <Input id="name" type="text" name="name" value={this.state.name} onChange={this.handleChange} required ></Input>
                             </FormGroup>
 
                             <FormGroup>
                                 <Label for="address">Address</Label>
-                                <Input id="address" type="text" name="address" value={this.state.address || ''} onChange={this.handleChange} required></Input>
+                                <Input id="address" type="text" name="address" value={this.state.address} onChange={this.handleChange} required></Input>
                             </FormGroup>
 
                             <FormGroup>
                             <Label for="city">City</Label>
-                                <Input id="city" type="text" name="city" value={this.state.city || ''} onChange={this.handleChange} required></Input>
+                                <Input id="city" type="text" name="city" value={this.state.city} onChange={this.handleChange} required></Input>
                             </FormGroup>
                             <FormGroup>
                             <Label for="state">State</Label>
-                                <Input id="state" type="text" name="state" value={this.state.state || ''} onChange={this.handleChange} required></Input>
+                                <Input id="state" type="text" name="state" value={this.state.state} onChange={this.handleChange} required></Input>
                             </FormGroup>
 
                             <FormGroup>
-                            <Label for="lng">Zip Code</Label>
-                                <Input id="lng" type="text" name="lng" value={this.state.lng || ''} onChange={this.handleChange} required></Input>
+                            <Label for="zip">Zip Code</Label>
+                                <Input id="zip" type="text" name="zip" value={this.state.zip} onChange={this.handleChange} required></Input>
                             </FormGroup>
 
                             <FormGroup>
                             <Label for="email">Email Address</Label>
-                                <Input id="email" type="text" name="email" value={this.state.email || ''} onChange={this.handleChange} required></Input>
+                                <Input id="email" type="text" name="email" value={this.state.email} onChange={this.handleChange} required></Input>
                             </FormGroup>
 
-                            <center><Button className="modalBtn" type="submit">Create</Button></center>
+                            
+                            <Link to='/checkout'><center><Button className="modalBtn" type="submit">Submit</Button></center></Link>
+                            
 
                             </Form>
       </div>
