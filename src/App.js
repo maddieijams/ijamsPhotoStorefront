@@ -27,11 +27,6 @@ class App extends Component {
               </Col>
             </Row>
           </Container>
-          {/* <center>
-          <h1 className="title">Ijams Photography</h1>
-        </center> */}
-
-          {/* <Navigation /> */}
 
           <Route path="/" exact component={PhotoDisplay} />
           <Route path="/about" component={About} />

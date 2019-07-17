@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Masonry from "react-masonry-component";
+import APIURL from '../helpers/environment';
 
 const masonryOptions = {
   transitionDuration: 0
@@ -22,7 +22,7 @@ class PhotoDisplay extends Component {
   }
 
   fetchPhotos = () => {
-    fetch(`http://localhost:3050/photo/getall`, {
+    fetch(`${APIURL}/photo/getall`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"

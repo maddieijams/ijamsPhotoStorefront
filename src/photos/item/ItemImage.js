@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FormGroup, Label, Input, Button } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 class ItemDisplay extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class ItemDisplay extends Component {
   }
 
   fetchPhoto = () => {
-    fetch(`http://localhost:3050/photo/item/${this.id}`, {
+    fetch(`${APIURL}/photo/item/${this.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
+import APIURL from '../helpers/environment';
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class CheckoutForm extends Component {
 
   async submit (ev){
     let {token} =  await this.props.stripe.createToken({name:"Name"});
-    let response = await fetch("http://localhost:3050/payment/charge", {
+    let response = await fetch(`${APIURL}/payment/charge`, {
       method: "POST",
       headers: {"Content-Type": "text/plain"},
       body: token.id

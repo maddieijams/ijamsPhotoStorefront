@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FormGroup, Label, Input, Button, Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import APIURL from '../../helpers/environment';
 
 class ItemDisplay extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class ItemDisplay extends Component {
   fetchPhoto = () => {
     this.id = this.props.match.params.id;
     console.log(this.id);
-    fetch(`http://localhost:3050/photo/item/${this.id}`, {
+    fetch(`${APIURL}/photo/item/${this.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
