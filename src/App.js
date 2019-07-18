@@ -11,6 +11,7 @@ import About from "./about/About";
 import Contact from "./contact/Contact";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
+import PhotoCreate from "./admin/PhotoCreate";
 
 class App extends Component {
   render() {
@@ -34,6 +35,7 @@ class App extends Component {
           <Route path="/address" component={AddressForm} />
           <Route path="/item/:id" component={ItemDisplay} />
           <Route path="/image/:id" component={ItemImage} />
+          <Route path="/create" component={PhotoCreate} />
 
           <StripeProvider apiKey="pk_test_PZScD6MMQk4mR7MEx65yXuxQ00n6AeQWBi">
             <div>
