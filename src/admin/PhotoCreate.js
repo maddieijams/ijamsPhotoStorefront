@@ -27,7 +27,8 @@ class PhotoCreate extends Component {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: new Headers({
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Accept":"application/json"
       })
     })
       .then(res => res.json())
