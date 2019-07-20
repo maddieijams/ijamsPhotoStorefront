@@ -9,7 +9,7 @@ switch (window.location.hostname) {
     // this is the deployed react application
     case 'ijams-photo-client.herokuapp.com':
         // this is the full url of your deployed API
-        APIURL = 'https://ijams-photo-client.herokuapp.com'
+        APIURL = 'https://ijams-photo-server.herokuapp.com'
         break;
         default: break;
 }
