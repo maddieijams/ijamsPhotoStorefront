@@ -31,7 +31,7 @@ class PhotoCreate extends Component {
         "Accept":"application/json"
       })
     })
-      .then(res => console.log(res))
+      .then(res => res.json())
       .catch(error => console.log(error))
       .then(data => {
         this.setState({
