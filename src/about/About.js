@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import me from "../assets/me-camera.JPG";
 
 class About extends Component {
