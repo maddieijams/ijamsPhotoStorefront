@@ -18,13 +18,15 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
-                <Navigation />
           <Container>
             <Row>
-              <Col xs='auto' className='sidebarCol'>
-              </Col>
-              <Col xs='auto' className='title' >
-                <span>Ijams Photography</span>
+              <Col xs="auto" className="sidebarCol"></Col>
+              <Col xs="auto" className="title">
+                {/* side nav with camera icon that opens it */}
+                <div className="d-flex flex-row justify-content-around">
+                  <Navigation />
+                  <span>Ijams Photography</span>
+                </div>
               </Col>
             </Row>
           </Container>
