@@ -18,10 +18,10 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
+                <Navigation />
           <Container>
             <Row>
               <Col xs='auto' className='sidebarCol'>
-                <Navigation />
               </Col>
               <Col xs='auto' className='title' >
                 <span>Ijams Photography</span>
