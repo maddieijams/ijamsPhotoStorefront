@@ -18,18 +18,8 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
-          <Container>
-            <Row>
-              <Col xs="auto" className="sidebarCol"></Col>
-              <Col xs="auto" className="title">
-                {/* side nav with camera icon that opens it */}
-                {/* <div className="d-flex flex-row justify-content-around"> */}
-                <Navigation />
-                <span>Ijams Photography</span>
-                {/* </div> */}
-              </Col>
-            </Row>
-          </Container>
+          <Navigation />
+          <span className="title">Ijams Photography</span>
 
           <Route path="/" exact component={PhotoDisplay} />
           <Route path="/about" component={About} />
