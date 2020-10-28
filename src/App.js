@@ -23,10 +23,10 @@ class App extends Component {
               <Col xs="auto" className="sidebarCol"></Col>
               <Col xs="auto" className="title">
                 {/* side nav with camera icon that opens it */}
-                <div className="d-flex flex-row justify-content-around">
-                  <Navigation />
-                  <span>Ijams Photography</span>
-                </div>
+                {/* <div className="d-flex flex-row justify-content-around"> */}
+                <Navigation />
+                <span>Ijams Photography</span>
+                {/* </div> */}
               </Col>
             </Row>
           </Container>
