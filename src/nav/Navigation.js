@@ -7,24 +7,38 @@ class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      menuOpen: false,
     };
   }
 
+  handleStateChange(state) {
+    this.setState({ menuOpen: state.isOpen });
+  }
+
   closeSidebar = () => {
-    this.setState({ isOpen: false });
+    this.setState({ menuOpen: false });
   };
 
   render() {
     return (
-      <Menu className="navMenu" customBurgerIcon={<img src={Icon} alt="icon" />} width={"20%"}>
+      <Menu
+        onStateChange={(state) => this.handleStateChange(state)}
+        isOpen={this.state.menuOpen}
+        className="navMenu"
+        customBurgerIcon={<img src={Icon} alt="icon" />}
+        width={"20%"}
+      >
         <h5>
-          <Link to="/" className="navLink" onClick={this.closeSidebar}>
+          <Link to="/" className="navLink" onClick={() => this.closeSidebar()}>
             Home
           </Link>
         </h5>
         <h5>
-          <Link to="/about" className="navLink" onClick={this.closeSidebar}>
+          <Link
+            to="/about"
+            className="navLink"
+            onClick={() => this.closeSidebar()}
+          >
             About
           </Link>
         </h5>

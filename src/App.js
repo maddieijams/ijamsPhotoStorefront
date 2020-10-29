@@ -18,8 +18,12 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
-          <Navigation />
-          <span className="title">Ijams Photography</span>
+          <div className="d-flex flex-row">
+            <Navigation />
+            <span className="title d-flex align-items-center">
+              Ijams Photography
+            </span>
+          </div>
 
           <Route path="/" exact component={PhotoDisplay} />
           <Route path="/about" component={About} />

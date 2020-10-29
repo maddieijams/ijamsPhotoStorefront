@@ -1,16 +1,19 @@
 import React, { Component } from "react";
+import ContactForm from "./ContactForm";
 
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <React.Fragment>
-        CONTACTTT me
+        <div className="m-4">
+          <h4 className="text-center">Contact Me</h4>
+          <ContactForm />
+        </div>
       </React.Fragment>
     );
   }
