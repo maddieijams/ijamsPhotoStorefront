@@ -18,6 +18,8 @@ class ItemDisplay extends Component {
       photo: "",
       id: "",
       price: 30,
+      size: "8x10",
+      frame: false,
     };
   }
 
@@ -39,11 +41,11 @@ class ItemDisplay extends Component {
   };
 
   framePrice = () => {
-    this.setState({ price: 45 });
+    this.setState({ frame: true, price: 45 });
   };
 
   printPrice = () => {
-    this.setState({ price: 30 });
+    this.setState({ frame: false, price: 30 });
   };
 
   render() {
@@ -66,20 +68,20 @@ class ItemDisplay extends Component {
                     <Button className="mt-3">View high resolution image</Button>
                   </Link>
                 </Col>
-                <Col className="text-center">
+                <Col className="text-center d-flex flex-column justify-content-center">
                   <FormGroup tag="fieldset">
-                    <b>Frame options:</b>
                     <FormGroup check>
                       <Label check>
                         <Input
-                          type="radio"
+                          type="checkbox"
                           name="frame"
                           onClick={this.framePrice}
+                          value={this.frame}
                         />{" "}
-                        In a cool frame!
+                        Framed?
                       </Label>
                     </FormGroup>
-                    <FormGroup check>
+                    {/* <FormGroup check>
                       <Label check>
                         <Input
                           type="radio"
@@ -88,20 +90,34 @@ class ItemDisplay extends Component {
                         />{" "}
                         No frame, just the print.
                       </Label>
-                    </FormGroup>
-                    <b className="mt-3">Size options:</b>
+                    </FormGroup> */}
+                    <div className="mt-3 font-weight-bold">Size options:</div>
                     <FormGroup check>
                       <Label check>
-                        <Input type="radio" name="size" /> 8x10in
+                        <Input
+                          type="radio"
+                          name="size"
+                          value={this.state.size}
+                          onClick={() => this.setState({ size: "8x10" })}
+                        />{" "}
+                        8x10in
                       </Label>
                     </FormGroup>
                     <FormGroup check>
                       <Label check>
-                        <Input type="radio" name="size" /> 5x7in
+                        <Input
+                          type="radio"
+                          name="size"
+                          value={this.state.size}
+                          onClick={() => this.setState({ size: "5x7" })}
+                        />{" "}
+                        5x7in
                       </Label>
                     </FormGroup>
                   </FormGroup>
-                  <b>Price: ${this.state.price}</b>
+                  <div className="mb-3 font-weight-bold">
+                    Price: ${this.state.price}
+                  </div>
                   <Link to="/address">
                     <Button>Continue Checkout</Button>
                   </Link>
