@@ -1,5 +1,7 @@
 Deployed application can be found here: https://ijams-photo-client.herokuapp.com/
 
+Server code can be found here: github.com/maddieijams/ijamsPhotoServer
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
